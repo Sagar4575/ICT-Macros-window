@@ -1,6 +1,6 @@
 // This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/ MPL-2.0
 //@version=6
-indicator("ICT Macro Windows", overlay = true, max_boxes_count = 500, max_labels_count = 500)
+indicator("ICT Macro Windows", overlay = true, max_boxes_count = 500, max_labels_count = 500, max_lines_count = 500)
 
 // --- Input group names ---
 const string GROUP_GENERAL = "General"
@@ -35,7 +35,7 @@ int boxTransparency1 = input.int(85, "Fill transparency", minval = 0, maxval = 1
 string borderStyle1 = input.string("Solid", "Border style", options = ["Solid", "Dashed", "Dotted", "None"], group = GROUP_W1, inline = "w1c", tooltip = "Choose a border style, or None for fill only.")
 color borderColor1 = input.color(#5b9cf6, "Border color", group = GROUP_W1, inline = "w1c", tooltip = "Independent border color for this window.")
 int borderWidth1 = input.int(1, "Border width", minval = 1, maxval = 5, group = GROUP_W1, tooltip = "Box border width in pixels.")
-string verticalMode1 = input.string("High-Low of the macro range", "Box vertical mode", options = ["High-Low of the macro range", "Full chart height"], group = GROUP_W1, tooltip = "Use the macro's evolving high-low, or the rolling chart range as a full-pane approximation.")
+string verticalMode1 = input.string("High-Low of the macro range", "Box vertical mode", options = ["High-Low of the macro range", "Full chart height"], group = GROUP_W1, tooltip = "Use the macro's evolving high-low, or expand the vertical area across the entire chart height.")
 string extendMode1 = input.string("Until end of macro", "Extend box to the right", options = ["None", "Until end of macro", "Until end of session"], group = GROUP_W1, tooltip = "None follows the active chart bars; Until end of macro projects to the scheduled macro end; Until end of session projects to this window's end time.")
 bool showBackground1 = input.bool(false, "Show background", group = GROUP_W1, inline = "w1bg", tooltip = "Shade the chart background during this window's macros, independently of the box.")
 color backgroundColor1 = input.color(#5b9cf6, "Background color", group = GROUP_W1, inline = "w1bg", tooltip = "Background shade color for this window.")
@@ -61,7 +61,7 @@ int boxTransparency2 = input.int(85, "Fill transparency", minval = 0, maxval = 1
 string borderStyle2 = input.string("Solid", "Border style", options = ["Solid", "Dashed", "Dotted", "None"], group = GROUP_W2, inline = "w2c", tooltip = "Choose a border style, or None for fill only.")
 color borderColor2 = input.color(#089981, "Border color", group = GROUP_W2, inline = "w2c", tooltip = "Independent border color for this window.")
 int borderWidth2 = input.int(1, "Border width", minval = 1, maxval = 5, group = GROUP_W2, tooltip = "Box border width in pixels.")
-string verticalMode2 = input.string("High-Low of the macro range", "Box vertical mode", options = ["High-Low of the macro range", "Full chart height"], group = GROUP_W2, tooltip = "Use the macro's evolving high-low, or the rolling chart range as a full-pane approximation.")
+string verticalMode2 = input.string("High-Low of the macro range", "Box vertical mode", options = ["High-Low of the macro range", "Full chart height"], group = GROUP_W2, tooltip = "Use the macro's evolving high-low, or expand the vertical area across the entire chart height.")
 string extendMode2 = input.string("Until end of macro", "Extend box to the right", options = ["None", "Until end of macro", "Until end of session"], group = GROUP_W2, tooltip = "None follows the active chart bars; Until end of macro projects to the scheduled macro end; Until end of session projects to this window's end time.")
 bool showBackground2 = input.bool(false, "Show background", group = GROUP_W2, inline = "w2bg", tooltip = "Shade the chart background during this window's macros, independently of the box.")
 color backgroundColor2 = input.color(#089981, "Background color", group = GROUP_W2, inline = "w2bg", tooltip = "Background shade color for this window.")
@@ -87,7 +87,7 @@ int boxTransparency3 = input.int(85, "Fill transparency", minval = 0, maxval = 1
 string borderStyle3 = input.string("Solid", "Border style", options = ["Solid", "Dashed", "Dotted", "None"], group = GROUP_W3, inline = "w3c", tooltip = "Choose a border style, or None for fill only.")
 color borderColor3 = input.color(#f2b84b, "Border color", group = GROUP_W3, inline = "w3c", tooltip = "Independent border color for this window.")
 int borderWidth3 = input.int(1, "Border width", minval = 1, maxval = 5, group = GROUP_W3, tooltip = "Box border width in pixels.")
-string verticalMode3 = input.string("High-Low of the macro range", "Box vertical mode", options = ["High-Low of the macro range", "Full chart height"], group = GROUP_W3, tooltip = "Use the macro's evolving high-low, or the rolling chart range as a full-pane approximation.")
+string verticalMode3 = input.string("High-Low of the macro range", "Box vertical mode", options = ["High-Low of the macro range", "Full chart height"], group = GROUP_W3, tooltip = "Use the macro's evolving high-low, or expand the vertical area across the entire chart height.")
 string extendMode3 = input.string("Until end of macro", "Extend box to the right", options = ["None", "Until end of macro", "Until end of session"], group = GROUP_W3, tooltip = "None follows the active chart bars; Until end of macro projects to the scheduled macro end; Until end of session projects to this window's end time.")
 bool showBackground3 = input.bool(false, "Show background", group = GROUP_W3, inline = "w3bg", tooltip = "Shade the chart background during this window's macros, independently of the box.")
 color backgroundColor3 = input.color(#f2b84b, "Background color", group = GROUP_W3, inline = "w3bg", tooltip = "Background shade color for this window.")
@@ -113,7 +113,7 @@ int boxTransparency4 = input.int(85, "Fill transparency", minval = 0, maxval = 1
 string borderStyle4 = input.string("Solid", "Border style", options = ["Solid", "Dashed", "Dotted", "None"], group = GROUP_W4, inline = "w4c", tooltip = "Choose a border style, or None for fill only.")
 color borderColor4 = input.color(#d96ce8, "Border color", group = GROUP_W4, inline = "w4c", tooltip = "Independent border color for this window.")
 int borderWidth4 = input.int(1, "Border width", minval = 1, maxval = 5, group = GROUP_W4, tooltip = "Box border width in pixels.")
-string verticalMode4 = input.string("High-Low of the macro range", "Box vertical mode", options = ["High-Low of the macro range", "Full chart height"], group = GROUP_W4, tooltip = "Use the macro's evolving high-low, or the rolling chart range as a full-pane approximation.")
+string verticalMode4 = input.string("High-Low of the macro range", "Box vertical mode", options = ["High-Low of the macro range", "Full chart height"], group = GROUP_W4, tooltip = "Use the macro's evolving high-low, or expand the vertical area across the entire chart height.")
 string extendMode4 = input.string("Until end of macro", "Extend box to the right", options = ["None", "Until end of macro", "Until end of session"], group = GROUP_W4, tooltip = "None follows the active chart bars; Until end of macro projects to the scheduled macro end; Until end of session projects to this window's end time.")
 bool showBackground4 = input.bool(false, "Show background", group = GROUP_W4, inline = "w4bg", tooltip = "Shade the chart background during this window's macros, independently of the box.")
 color backgroundColor4 = input.color(#d96ce8, "Background color", group = GROUP_W4, inline = "w4bg", tooltip = "Background shade color for this window.")
@@ -156,6 +156,8 @@ var array<float> recordHighs = array.new_float()
 var array<float> recordLows = array.new_float()
 var array<box> recordBoxes = array.new_box()
 var array<label> recordLabels = array.new_label()
+var array<line> recordLinesLeft = array.new_line()
+var array<line> recordLinesRight = array.new_line()
 
 // Find macros using chart-bar overlap; signals are emitted once when a chart bar crosses each boundary.
 processWindow(bool enabled, string sessionText, int windowId, bool mon, bool tue, bool wed, bool thu, bool fri, bool sat, bool sun) =>
@@ -197,15 +199,23 @@ processWindow(bool enabled, string sessionText, int windowId, bool mon, bool tue
             array.push(recordLows, low)
             array.push(recordBoxes, na)
             array.push(recordLabels, na)
+            array.push(recordLinesLeft, na)
+            array.push(recordLinesRight, na)
 
         // Enforce the total drawing-record cap, removing the oldest macro first.
         while array.size(recordCenters) > maxMacrosInput
             box oldestBox = array.shift(recordBoxes)
             label oldestLabel = array.shift(recordLabels)
+            line oldestLineL = array.shift(recordLinesLeft)
+            line oldestLineR = array.shift(recordLinesRight)
             if not na(oldestBox)
                 box.delete(oldestBox)
             if not na(oldestLabel)
                 label.delete(oldestLabel)
+            if not na(oldestLineL)
+                line.delete(oldestLineL)
+            if not na(oldestLineR)
+                line.delete(oldestLineR)
             array.shift(recordCenters)
             array.shift(recordWindowIds)
             array.shift(recordHighs)
@@ -218,8 +228,6 @@ processWindow(bool enabled, string sessionText, int windowId, bool mon, bool tue
 
 // --- Chart and drawing helpers ---
 bool validTimeframe = timeframe.isintraday and timeframe.in_seconds() >= 60 and timeframe.in_seconds() <= 900
-float chartRangeHigh = ta.highest(high, 300)
-float chartRangeLow = ta.lowest(low, 300)
 
 getBorderStyle(string choice) =>
     choice == "Dashed" ? line.style_dashed : choice == "Dotted" ? line.style_dotted : line.style_solid
@@ -254,20 +262,23 @@ renderWindow(int centerTs, int windowId, string windowName, string sessionText, 
         int rightEdge = extensionChoice == "Until end of session" ? windowEndTimestamp(centerTs, sessionText, timezoneInput) : extensionChoice == "Until end of macro" ? macroEnd : math.max(macroStart, math.min(currentBarEnd, macroEnd))
         float macroHigh = array.get(recordHighs, foundIndex)
         float macroLow = array.get(recordLows, foundIndex)
-        float topPrice = verticalChoice == "Full chart height" ? chartRangeHigh : macroHigh
-        float bottomPrice = verticalChoice == "Full chart height" ? chartRangeLow : macroLow
+        bool isFullHeight = verticalChoice == "Full chart height"
         line_style_placeholder = getBorderStyle(borderChoice)
         color actualBorderColor = borderChoice == "None" ? color.new(borderColor, 100) : borderColor
+
         box currentBox = array.get(recordBoxes, foundIndex)
-        if showBox
+        line currentLineL = array.get(recordLinesLeft, foundIndex)
+        line currentLineR = array.get(recordLinesRight, foundIndex)
+
+        if showBox and not isFullHeight
             if na(currentBox)
-                currentBox := box.new(left = macroStart, top = topPrice, right = rightEdge, bottom = bottomPrice, xloc = xloc.bar_time, border_color = actualBorderColor, border_width = borderWidth, border_style = line_style_placeholder, bgcolor = color.new(fillColor, fillTransparency))
+                currentBox := box.new(left = macroStart, top = macroHigh, right = rightEdge, bottom = macroLow, xloc = xloc.bar_time, border_color = actualBorderColor, border_width = borderWidth, border_style = line_style_placeholder, bgcolor = color.new(fillColor, fillTransparency))
                 array.set(recordBoxes, foundIndex, currentBox)
             else
                 box.set_left(currentBox, macroStart)
                 box.set_right(currentBox, rightEdge)
-                box.set_top(currentBox, topPrice)
-                box.set_bottom(currentBox, bottomPrice)
+                box.set_top(currentBox, macroHigh)
+                box.set_bottom(currentBox, macroLow)
                 box.set_border_color(currentBox, actualBorderColor)
                 box.set_border_width(currentBox, borderWidth)
                 box.set_border_style(currentBox, line_style_placeholder)
@@ -276,10 +287,40 @@ renderWindow(int centerTs, int windowId, string windowName, string sessionText, 
             box.delete(currentBox)
             array.set(recordBoxes, foundIndex, na)
 
+        // For Full chart height mode: draw vertical boundary lines spanning the entire chart height if borders are enabled
+        bool shouldDrawLines = showBox and isFullHeight and borderChoice != "None"
+        if shouldDrawLines
+            if na(currentLineL)
+                currentLineL := line.new(x1 = macroStart, y1 = macroLow, x2 = macroStart, y2 = macroHigh, xloc = xloc.bar_time, extend = extend.both, color = actualBorderColor, width = borderWidth, style = line_style_placeholder)
+                array.set(recordLinesLeft, foundIndex, currentLineL)
+            else
+                line.set_xy1(currentLineL, macroStart, macroLow)
+                line.set_xy2(currentLineL, macroStart, macroHigh)
+                line.set_color(currentLineL, actualBorderColor)
+                line.set_width(currentLineL, borderWidth)
+                line.set_style(currentLineL, line_style_placeholder)
+
+            if na(currentLineR)
+                currentLineR := line.new(x1 = rightEdge, y1 = macroLow, x2 = rightEdge, y2 = macroHigh, xloc = xloc.bar_time, extend = extend.both, color = actualBorderColor, width = borderWidth, style = line_style_placeholder)
+                array.set(recordLinesRight, foundIndex, currentLineR)
+            else
+                line.set_xy1(currentLineR, rightEdge, macroLow)
+                line.set_xy2(currentLineR, rightEdge, macroHigh)
+                line.set_color(currentLineR, actualBorderColor)
+                line.set_width(currentLineR, borderWidth)
+                line.set_style(currentLineR, line_style_placeholder)
+        else
+            if not na(currentLineL)
+                line.delete(currentLineL)
+                array.set(recordLinesLeft, foundIndex, na)
+            if not na(currentLineR)
+                line.delete(currentLineR)
+                array.set(recordLinesRight, foundIndex, na)
+
         color actualTextColor = color.t(windowTextColor) >= 100 ? labelColorInput : windowTextColor
         bool shouldLabel = showLabelsInput and showWindowLabel
         string labelText = windowName + " " + formatMacroTime(macroStart, timezoneInput) + "-" + formatMacroTime(macroEnd, timezoneInput)
-        float labelPrice = labelPosition == "Top of box" ? topPrice : bottomPrice
+        float labelPrice = labelPosition == "Top of box" ? macroHigh : macroLow
         label currentLabel = array.get(recordLabels, foundIndex)
         if shouldLabel
             if na(currentLabel)
@@ -309,11 +350,17 @@ if validTimeframe
     renderWindow(candidate3, 3, name3, session3, showBox3, boxFill3, boxTransparency3, borderStyle3, borderColor3, borderWidth3, verticalMode3, extendMode3, showWindowLabel3, labelPosition3, windowLabelColor3)
     renderWindow(candidate4, 4, name4, session4, showBox4, boxFill4, boxTransparency4, borderStyle4, borderColor4, borderWidth4, verticalMode4, extendMode4, showWindowLabel4, labelPosition4, windowLabelColor4)
 
-// Background shading is independent of boxes and labels. On coarse bars, the whole overlapping bar is shaded.
-color background1 = validTimeframe and enabled1 and showBackground1 and not na(candidate1) and windowIncludesCenter(candidate1, session1, timezoneInput, mon1, tue1, wed1, thu1, fri1, sat1, sun1) ? color.new(backgroundColor1, backgroundTransparency1) : na
-color background2 = validTimeframe and enabled2 and showBackground2 and not na(candidate2) and windowIncludesCenter(candidate2, session2, timezoneInput, mon2, tue2, wed2, thu2, fri2, sat2, sun2) ? color.new(backgroundColor2, backgroundTransparency2) : na
-color background3 = validTimeframe and enabled3 and showBackground3 and not na(candidate3) and windowIncludesCenter(candidate3, session3, timezoneInput, mon3, tue3, wed3, thu3, fri3, sat3, sun3) ? color.new(backgroundColor3, backgroundTransparency3) : na
-color background4 = validTimeframe and enabled4 and showBackground4 and not na(candidate4) and windowIncludesCenter(candidate4, session4, timezoneInput, mon4, tue4, wed4, thu4, fri4, sat4, sun4) ? color.new(backgroundColor4, backgroundTransparency4) : na
+// Background shading: active when "Show background" is enabled OR when "Box vertical mode" is set to "Full chart height" (expanding the vertical area across the whole screen).
+bool isMacroActive1 = validTimeframe and enabled1 and not na(candidate1) and windowIncludesCenter(candidate1, session1, timezoneInput, mon1, tue1, wed1, thu1, fri1, sat1, sun1)
+bool isMacroActive2 = validTimeframe and enabled2 and not na(candidate2) and windowIncludesCenter(candidate2, session2, timezoneInput, mon2, tue2, wed2, thu2, fri2, sat2, sun2)
+bool isMacroActive3 = validTimeframe and enabled3 and not na(candidate3) and windowIncludesCenter(candidate3, session3, timezoneInput, mon3, tue3, wed3, thu3, fri3, sat3, sun3)
+bool isMacroActive4 = validTimeframe and enabled4 and not na(candidate4) and windowIncludesCenter(candidate4, session4, timezoneInput, mon4, tue4, wed4, thu4, fri4, sat4, sun4)
+
+color background1 = isMacroActive1 and (showBackground1 or (showBox1 and verticalMode1 == "Full chart height")) ? (showBox1 and verticalMode1 == "Full chart height" ? color.new(boxFill1, boxTransparency1) : color.new(backgroundColor1, backgroundTransparency1)) : na
+color background2 = isMacroActive2 and (showBackground2 or (showBox2 and verticalMode2 == "Full chart height")) ? (showBox2 and verticalMode2 == "Full chart height" ? color.new(boxFill2, boxTransparency2) : color.new(backgroundColor2, backgroundTransparency2)) : na
+color background3 = isMacroActive3 and (showBackground3 or (showBox3 and verticalMode3 == "Full chart height")) ? (showBox3 and verticalMode3 == "Full chart height" ? color.new(boxFill3, boxTransparency3) : color.new(backgroundColor3, backgroundTransparency3)) : na
+color background4 = isMacroActive4 and (showBackground4 or (showBox4 and verticalMode4 == "Full chart height")) ? (showBox4 and verticalMode4 == "Full chart height" ? color.new(boxFill4, boxTransparency4) : color.new(backgroundColor4, backgroundTransparency4)) : na
+
 bgcolor(background1, title = "Window 1 macro background")
 bgcolor(background2, title = "Window 2 macro background")
 bgcolor(background3, title = "Window 3 macro background")
